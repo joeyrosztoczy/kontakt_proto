@@ -1,0 +1,8 @@
+[package]
+name = "kontakt_proto"
+version = "0.1.0"
+authors = ["joeyrosztoczy <joeyr@leaf.ag>"]
+
+[dependencies]
+actix="0.5"
+actix-web="0.4"
