@@ -16,7 +16,7 @@ fn main() {
     let sys = actix::System::new("http-proxy");
 
     HttpServer::new(|| {
-        Application::new()
+        App::new()
             .middleware(middleware::Logger::default())
             .resource("/", |r| r.f(index))
     }).bind(ADDRESS)

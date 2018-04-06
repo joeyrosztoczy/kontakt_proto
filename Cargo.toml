@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["joeyrosztoczy <joeyr@leaf.ag>"]
 
 [dependencies]
-actix="0.5"
-actix-web="0.4"
-env_logger="0.5"
-futures="0.1"
+actix = "0.5"
+actix-web = { git = "https://github.com/actix/actix-web", features=["alpn"] }
+env_logger = "0.5"
+futures = "0.1"
