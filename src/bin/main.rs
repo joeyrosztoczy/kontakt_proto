@@ -4,7 +4,7 @@ extern crate env_logger;
 extern crate kontakt_proto;
 
 use actix_web::*;
-use kontakt_proto::request_handlers::index;
+use kontakt_proto::request_handlers::get_devices;
 
 const ADDRESS: &'static str = "127.0.0.1:8080";
 
@@ -15,15 +15,13 @@ fn main() {
     env_logger::init();
     let sys = actix::System::new("http-proxy");
 
-    HttpServer::new(|| {
+    server::new(|| {
         App::new()
             .middleware(middleware::Logger::default())
-            .resource("/", |r| r.f(index))
+            .resource("/", |r| r.f(get_devices))
     }).bind(ADDRESS)
         .expect("Why the fux")
         .run();
 
-    sys.run();
-
-    println!("Running the kontakt prototype at: {}", ADDRESS);
+    let _sys = sys.run();
 }
